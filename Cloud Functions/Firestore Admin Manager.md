@@ -57,8 +57,8 @@ exports.manageAdmins = functions.firestore
 
 ### SNIPPET: Rules
 Example Rules to secure the below app from all external access
-make sure the `/Config/Admins` matches your above firestore structure
-denying all access, ensures only the adminSdk and the console can edit this data.
+make sure the `/Config/Admins` matches your above firestore structure.
+Denying all access, ensures only the adminSdk and the console can edit this data.
 ```
 service cloud.firestore {
   match /databases/{database}/documents {
