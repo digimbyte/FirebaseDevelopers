@@ -14,7 +14,7 @@ Feel free to submit changes, improvements, etc. please follow an educative struc
 > leave suggestions and recommendations here
 >
 >### SNIPPET: *optional: name the snippet
-> `*post relative code here`
+> ```*post relative code here```
 
 
 
