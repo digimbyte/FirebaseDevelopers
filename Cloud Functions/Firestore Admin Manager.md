@@ -7,8 +7,8 @@ Insert this into your cloud functions server, hosted on your local firebase clou
 To Configure, 
 - Set the path in .document("path") to the relavent document in Firestore
 - Add Fields in this document with an email address with its value type boolean
- - Define this value as true for them to have admin claims.
- - Set the value to False or deleting this Field, will remove admin claims.
+  - Define this value as true for them to have admin claims.
+  - Set the value to False or deleting this Field, will remove admin claims.
 
 
 
