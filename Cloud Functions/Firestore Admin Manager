@@ -1,0 +1,49 @@
+// TASK: Add a custom claim "admin: true" to a user based on a firestore document
+// No more need to create one time websites, console commands, or exploitable interfaces to add admin roles to users
+
+// How to use:
+// Insert this into your cloud functions server, hosted on your local firebase cloud, or in your dedicated server.
+// To Configure, set the path in .document("path") to the relavent location where this information would be held
+
+// WARNING: it is HIGHLY important that access to this document, and other relative information is not accessible to the public
+// this can be secured with rules and the appropriate health checks.
+// `context.auth` is an unreliable source for auth confirmations from the console and adminSdk as they return 'undefined'
+
+
+exports.manageAdmins = functions.firestore
+    .document('GlobalConfig/Admins')
+    .onWrite((change, context) => {
+        // compare before and after, concat the change
+        const before = change.before.data()!;
+        const after = change.after.data()!;
+        Object.keys(before).forEach(key => {
+            if (before[key] === true && (after[key]) !== true)
+                admin.auth().getUserByEmail(key)
+                    .then(function (userRecord) {
+                        ChangeAdmin(userRecord.uid, false)
+                            .catch(function (error) {
+                                console.error('Error Chanting Admin Perms:', error);
+                            });
+                        console.log('Successfully fetched user data:', userRecord.toJSON());
+                    })
+                    .catch(function (error) {
+                        console.log('Error fetching user data:', error);
+                    });
+        });
+        // Promote New Admins
+        Object.keys(after).forEach(key => {
+            if ((before[key]) !== true && after[key] === true)
+                admin.auth().getUserByEmail(key)
+                    .then(function (userRecord) {
+                        ChangeAdmin(userRecord.uid, true)
+                            .catch(function (error) {
+                                console.error('Error Chanting Admin Perms:', error);
+                            });
+                        console.log('Successfully fetched user data:', userRecord.toJSON());
+                    })
+                    .catch(function (error) {
+                        console.log('Error fetching user data:', error);
+                    });
+        });
+        return true;
+    });
