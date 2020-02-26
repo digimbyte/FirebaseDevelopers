@@ -14,7 +14,7 @@ To Configure, set the path in .document("path") to the relavent location where t
  - refer to the [documentation](https://firebase.google.com/docs/auth/admin/manage-users#retrieve_user_data).
 
 
-## SNIPPET: Cloud Function (manageAdmins)
+### SNIPPET: Cloud Function (manageAdmins)
 ```
 exports.manageAdmins = functions.firestore
     .document('Config/Admins')
