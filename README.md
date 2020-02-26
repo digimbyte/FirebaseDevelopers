@@ -4,7 +4,8 @@ A collection of code snippets to make life easier and to fullfill common tasks
 Feel free to submit changes, improvements, etc. please follow an educative structure:
 
 ```
-### TASK: What is the purpose of this script?
+### TASK: 
+What is the purpose of this script?
 *Optional: Further description and selling point!
 
 ### How to use:
