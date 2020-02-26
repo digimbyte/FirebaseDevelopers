@@ -4,7 +4,13 @@ Manage it directly inside a secured firestore document.
 
 ## How to use:
 Insert this into your cloud functions server, hosted on your local firebase cloud, or in your dedicated server.
-To Configure, set the path in .document("path") to the relavent location where this information would be held
+To Configure, 
+1. Set the path in .document("path") to the relavent document in Firestore
+2. Add Fields in this document with an email address with its value type bool
+ - Define this value as true for them to have admin claims.
+ - Set the value to False or deleting this Field, will remove admin claims.
+
+
 
 ## WARNING: 
  - It is HIGHLY important that access to this document, and other relative information is not accessible to the public
@@ -19,9 +25,11 @@ To Configure, set the path in .document("path") to the relavent location where t
 exports.manageAdmins = functions.firestore
     .document('Config/Admins')
     .onWrite((change, context) => {
-        // compare before and after, concat the change
+        // Collect before and after data for comparison.
         const before = change.before.data()!;
         const after = change.after.data()!;
+        
+        // Remove admin from users.
         Object.keys(before).forEach(key => {
             if (before[key] === true && (after[key]) !== true)
                 admin.auth().getUserByEmail(key)
@@ -36,7 +44,7 @@ exports.manageAdmins = functions.firestore
                         console.log('Error fetching user data:', error);
                     });
         });
-        // Promote New Admins
+        // Add admin to new users
         Object.keys(after).forEach(key => {
             if ((before[key]) !== true && after[key] === true)
                 admin.auth().getUserByEmail(key)
