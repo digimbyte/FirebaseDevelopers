@@ -3,6 +3,7 @@ A collection of code snippets to make life easier and to fullfill common tasks
 
 Feel free to submit changes, improvements, etc. please follow an educative structure:
 
+###### Service/Descriptive Name.md
 ```
 ### TASK: 
 What is the purpose of this script?
@@ -19,8 +20,8 @@ leave suggestions and recommendations here
  ```*post relative code here``` 
  ```
 
+Please refer to GitHub's Markdown service: [Here](https://guides.github.com/features/mastering-markdown/)
 
-
-Join other Firebase Developers on our [Official Discord: https://discord.gg/BN2cgc3](https://discord.gg/BN2cgc3)
+Join other Firebase Developers on our Official Discord: [Here](https://discord.gg/BN2cgc3)
 
 Happy coding!
