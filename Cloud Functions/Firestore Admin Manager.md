@@ -7,11 +7,11 @@ Insert this into your cloud functions server, hosted on your local firebase clou
 To Configure, set the path in .document("path") to the relavent location where this information would be held
 
 ## WARNING: 
- It is HIGHLY important that access to this document, and other relative information is not accessible to the public
- this can be secured with rules (see below: Rules) and the appropriate health checks.
- `context.auth` is an unreliable source for auth confirmations from the console and adminSdk as they return 'undefined'
- It should also be noted about caveats of finding users by email, it would be prefered to find a user by UID instead.
- refer to the documentation: https://firebase.google.com/docs/auth/admin/manage-users#retrieve_user_data
+ - It is HIGHLY important that access to this document, and other relative information is not accessible to the public
+ - this can be secured with rules (see below: Rules) and the appropriate health checks.
+ - `context.auth` is an unreliable source for auth confirmations from the console and adminSdk as they return 'undefined'
+ - It should also be noted about caveats of finding users by email, it would be prefered to find a user by UID instead.
+ - refer to the [documentation](https://firebase.google.com/docs/auth/admin/manage-users#retrieve_user_data).
 
 
 ## SNIPPET: Cloud Function (manageAdmins)
