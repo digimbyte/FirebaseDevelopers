@@ -5,8 +5,8 @@ Manage it directly inside a secured firestore document.
 ## How to use:
 Insert this into your cloud functions server, hosted on your local firebase cloud, or in your dedicated server.
 To Configure, 
-1. Set the path in .document("path") to the relavent document in Firestore
-2. Add Fields in this document with an email address with its value type bool
+- Set the path in .document("path") to the relavent document in Firestore
+- Add Fields in this document with an email address with its value type boolean
  - Define this value as true for them to have admin claims.
  - Set the value to False or deleting this Field, will remove admin claims.
 
