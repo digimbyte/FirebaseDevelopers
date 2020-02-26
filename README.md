@@ -1,4 +1,4 @@
-# FirebaseDevelopers
+# Firebase Developers
 A collection of code snippets to make life easier and to fullfill common tasks
 
 Feel free to submit changes, improvements, etc. please follow an educative structure:
