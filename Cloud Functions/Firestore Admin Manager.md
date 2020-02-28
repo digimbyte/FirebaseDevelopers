@@ -3,7 +3,7 @@ No more need to create one time websites, console commands, or exploitable inter
 Manage it directly inside a secured firestore document.
 
 ## How to use:
-Insert this into your cloud functions server, hosted on your local firebase cloud, or in your dedicated server.
+Insert this into your cloud functions, hosted on your local firebase cloud, or in your dedicated server.
 To Configure, 
 - Set the path in .document("path") to the relavent document in Firestore
 - Add Fields in this document with an email address with its value type boolean
@@ -16,7 +16,7 @@ To Configure,
  - It is HIGHLY important that access to this document, and other relative information is not accessible to the public
  - this can be secured with rules (see below: Rules) and the appropriate health checks.
  - `context.auth` is an unreliable source for auth confirmations from the console and adminSdk as they return 'undefined'
- - It should also be noted about caveats of finding users by email, it would be prefered to find a user by UID instead.
+ - It should also be noted about caveats of finding users by email, it would be prefered to use `admin.auth().getUser(key)` instead.
  - refer to the [documentation](https://firebase.google.com/docs/auth/admin/manage-users#retrieve_user_data).
 
 
