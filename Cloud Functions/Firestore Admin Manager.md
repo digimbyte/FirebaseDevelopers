@@ -16,7 +16,7 @@ To Configure,
  - It is HIGHLY important that access to this document, and other relative information is not accessible to the public
  - this can be secured with rules (see below: Rules) and the appropriate health checks.
  - `context.auth` is an unreliable source for auth confirmations from the console and adminSdk as they return 'undefined'
- - It should also be noted about caveats of finding users by email, it would be prefered to use `admin.auth().getUser(key)` instead.
+ - It should also be noted about caveats of finding users by email, it would be prefered to use `admin.auth().getUser(userUid)` instead.
  - refer to the [documentation](https://firebase.google.com/docs/auth/admin/manage-users#retrieve_user_data).
 
 
