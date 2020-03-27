@@ -21,7 +21,7 @@ To Configure,
 
 
 ### SNIPPET: Cloud Function (manageAdmins)
-```
+```// TypeScript
 exports.manageAdmins = functions.firestore
     .document('Config/Admins')
     .onWrite((change, context) => {
@@ -51,7 +51,7 @@ exports.manageAdmins = functions.firestore
                     .then(function (userRecord) {
                         ChangeAdmin(userRecord.uid, true)
                             .catch(function (error) {
-                                console.error('Error Chanting Admin Perms:', error);
+                                console.error('Error Changing Admin Perms:', error);
                             });
                         console.log('Successfully fetched user data:', userRecord.toJSON());
                     })
