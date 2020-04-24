@@ -31,14 +31,12 @@ exports.manageAdmins = functions.firestore
         
         // Remove admin from users.
         Object.keys(before).forEach(key => {
-            if (before[key] === true && (after[key]) !== true)
+            if (before[key] === true && after[key] !== true)
                 admin.auth().getUserByEmail(key)
                     .then(function (userRecord) {
-                        ChangeAdmin(userRecord.uid, false)
-                            .catch(function (error) {
-                                console.error('Error Changing Admin Perms:', error);
-                            });
-                        console.log('Successfully fetched user data:', userRecord.toJSON());
+                        const Claims = userRecord.customClaims||{};
+                        Claims.admin = false;
+                        return admin.auth().setCustomUserClaims(userRecord.uid, Claims);
                     })
                     .catch(function (error) {
                         console.log('Error fetching user data:', error);
@@ -46,14 +44,12 @@ exports.manageAdmins = functions.firestore
         });
         // Add admin to new users
         Object.keys(after).forEach(key => {
-            if ((before[key]) !== true && after[key] === true)
+            if (before[key] !== true && after[key] === true)
                 admin.auth().getUserByEmail(key)
                     .then(function (userRecord) {
-                        ChangeAdmin(userRecord.uid, true)
-                            .catch(function (error) {
-                                console.error('Error Changing Admin Perms:', error);
-                            });
-                        console.log('Successfully fetched user data:', userRecord.toJSON());
+                        const Claims = userRecord.customClaims||{};
+                        Claims.admin = true;
+                        return admin.auth().setCustomUserClaims(userRecord.uid, Claims);
                     })
                     .catch(function (error) {
                         console.log('Error fetching user data:', error);
