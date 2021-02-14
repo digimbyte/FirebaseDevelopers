@@ -5,6 +5,7 @@ Manage it directly inside a secured firestore document.
 
 ## How to use:
 Insert this into your cloud functions. It uses a firestore trigger to update custom claims.
+
 To Configure, 
 - Set the path in .document("path") to the relavent document in Firestore
 - Add Fields in this document with an email address with its value type boolean
