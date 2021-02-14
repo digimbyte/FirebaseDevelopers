@@ -4,7 +4,7 @@ No more need to create one time websites, console commands, or exploitable inter
 Manage it directly inside a secured firestore document.
 
 ## How to use:
-Insert this into your cloud functions, hosted on your local firebase cloud, or in your dedicated server.
+Insert this into your cloud functions. It uses a firestore trigger to update custom claims.
 To Configure, 
 - Set the path in .document("path") to the relavent document in Firestore
 - Add Fields in this document with an email address with its value type boolean
