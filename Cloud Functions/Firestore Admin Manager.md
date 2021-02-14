@@ -1,5 +1,6 @@
 ## TASK: Add a custom claim to a user based on a firestore document
-No more need to create one time websites, console commands, or exploitable interfaces to add roles to users
+No more need to create one time websites, console commands, or exploitable interfaces to add roles to users.
+
 Manage it directly inside a secured firestore document.
 
 ## How to use:
