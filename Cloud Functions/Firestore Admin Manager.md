@@ -34,7 +34,7 @@ exports.manageAdmins = functions.firestore
         // Remove admin from users.
         Object.keys(before).forEach(key => {
             if (before[key] === true && after[key] !== true)
-                admin.auth().getUserByEmail(key)
+                admin.auth().getUserByEmail(key) // or admin.auth().getUser(userUid)
                     .then(function (userRecord) {
                         const Claims = userRecord.customClaims||{};
                         Claims.admin = false;
